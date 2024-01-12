@@ -6,18 +6,12 @@
     var count = jokes!.Count();
 
     var current = int.Parse(ViewData["JokeId"]!.ToString() ?? "2");
-    var previous = int.Parse(ViewData["PreviousJokeId"]!.ToString() ?? "1");
-    var next = int.Parse(ViewData["NextJokeId"]!.ToString() ?? "3");
 }
 
 <div class="text-center">
     <h1 class="display-3 jokenor-header">Jokenor809</h1>
+    <p><small><em>@current/@count</em></small></p>
     <p class="display-6">
         @jokes.GetJoke(current)
-    </p>
-    <p><small><em>@current/@count</em></small></p>
-    <p class="action-buttons">
-        <a class="nav-link text-dark" asp-area="" asp-page="/Index" asp-route-j="@previous">Previous</a>
-        <a class="nav-link text-dark" asp-area="" asp-page="/Index" asp-route-j="@next">Next</a>
     </p>
 </div>

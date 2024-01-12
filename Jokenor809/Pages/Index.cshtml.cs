@@ -27,5 +27,6 @@ public class IndexModel : PageModel
         ViewData["JokeId"] = currentJokeId.ToString();
         ViewData["PreviousJokeId"] = previousJokeId.ToString();
         ViewData["NextJokeId"] = nextJokeId.ToString();
+        ViewData["IncludeJokeNav"] = "true";
     }
 }

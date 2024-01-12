@@ -1,4 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var includeJokeNav = false;
+    if (ViewData.ContainsKey("IncludeJokeNav"))
+        includeJokeNav = bool.Parse(ViewData["IncludeJokeNav"]!.ToString() ?? "false");
+
+    var previous = 1;
+    if (ViewData.ContainsKey("PreviousJokeId"))
+        previous = int.Parse(ViewData["PreviousJokeId"]!.ToString() ?? "1");
+    var next = 3;
+    if (ViewData.ContainsKey("NextJokeId"))
+        next = int.Parse(ViewData["NextJokeId"]!.ToString() ?? "3");
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -25,6 +37,18 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Jokes">All Jokes</a>
                     </li>
+                    @if (includeJokeNav)
+                    {
+                        <li class="nav-item">
+                            <span class="nav-link text-dark">|</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index" asp-route-j="@previous">Previous</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index" asp-route-j="@next">Next</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
