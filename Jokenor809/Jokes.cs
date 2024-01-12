@@ -37,12 +37,12 @@ public class Jokes : IJokes
         EnsureJokes();
         var max = _jokes.Count;
 
-        if (number < 0)
-            throw new ArgumentException($"{number} is invalid, must be between 0 and {max}", nameof(number));
+        if (number < 1)
+            throw new ArgumentException($"{number} is invalid, must be between 1 and {max}", nameof(number));
         if (number > max)
-            throw new ArgumentException($"{number} is invalid, must be between 0 and {max}", nameof(number));
+            throw new ArgumentException($"{number} is invalid, must be between 1 and {max}", nameof(number));
 
-        return _jokes[number];
+        return _jokes[number-1];
     }
 
     public string GetRandomJoke()
