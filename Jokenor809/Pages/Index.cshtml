@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var jokes = @ViewData["JokesObj"] as IJokes;
+    var count = jokes!.Count();
+
+    var rando = new Random().Next(0, count);
+}
+
+<div class="text-center">
+    <h1 class="display-3 jokenor-header">Jokenor809</h1>
+    <p class="display-6">
+        @jokes.GetJoke(rando)
+    </p>
+    <p><small><em>@rando/@count</em></small></p>
+</div>

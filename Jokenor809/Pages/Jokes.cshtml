@@ -1,0 +1,13 @@
+﻿@page
+@model Jokenor809.Pages.Jokes
+@{
+    ViewData["Title"] = "All Jokes";
+    var jokes = @ViewData["Jokes"] as string[];
+}
+
+<ol class="jokes">
+    @foreach (var joke in jokes!)
+    {
+        <li>@joke</li>
+    }
+</ol>
